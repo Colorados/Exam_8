@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'review_detail' pk=review.pk %}">Cancel</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Edit your Review</h1>
+    {% url 'review_edit' pk=review.pk as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' button_text='Edit' %}
+{% endblock %}

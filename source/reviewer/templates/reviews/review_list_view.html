@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Hi, there{% endblock %}
+
+{% block content %}
+<h1>Reviews</h1>
+    {% for review in reviews %}
+    <h3><a href="{% url 'review_detail' review.pk %}">{{ review.product }}</a></h3>
+    <p>Author: {{ review.author }}</p>
+    <p>Text: {{ review.review_text }}</p>
+    <p><a href="{% url 'review_edit' review.pk %}" class="btn">EDIT</a></p>
+    <p><a href="{% url 'review_delete' review.pk %}" class="btn">DELETE</a></p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'review_detail' pk=review.pk %}">Cancel</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Are you sure you want to delete "{{  }}"?</h1>
+    <form action="{% url 'review_delete' pk=review.pk %}" method="post">
+        {% csrf_token %}
+        <p><input type="submit" value="Yes"></p>
+        <form action="{% url 'review_detail' review.pk %}" method="post"></p>
+    </form>
+    <h3>Review:</h3>
+    <p class="pre">{{ review.author }} | {{ review.review_text }}</p>
+{% endblock %}
