@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}View{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'product_edit' product.pk %}">EDIT</a></li>
+    <li><a href="{% url 'product_remove' product.pk %}">DELETE</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Details:</h1>
+    <h2>Product: {{ product.product_name }}</h2>
+    <p>Category: {{ product.category }}</p>
+    <p>Description: {{ product.description }}</p>
+    <p><a href="{% url 'review_create' %}">Create a review for this product</a></p>
+{% endblock %}
